@@ -1,25 +1,25 @@
-dnorm (x, mean, sd) pdf
-pnorm (x, mean, sd) cdf
-qnorm (p, mean, sd) quantiles
-rnorm               random numbers
+dnorm (x, mean, sd)      pdf
+pnorm (x, mean, sd)      cdf
+qnorm (p, mean, sd)      quantiles
+rnorm                    random numbers
 
-dbinom (k, size, prob) pmf
-qbinom                 quantile
-pbinom                 cummulative probabs
-rbinom                 random numbers
+dbinom (k, size, prob)   pmf
+qbinom                   quantile
+pbinom                   cummulative probabs
+rbinom                   random numbers
 
-dpois (x, lambda = 3) pmf
-qpois                 cdf P(X <= x) >= p
-ppois                 cdf P(X <= x) 
-rpois                 random
+dpois (x, lambda = 3)    pmf
+qpois                    cdf P(X <= x) >= p
+ppois                    cdf P(X <= x) 
+rpois                    random
 
-dexp (x, rate) pdf
-qexp           quantile P(X <= x) = p
-pexp           cdf P(X <= x)
-rexp           random nums
+dexp (x, rate)            pdf
+qexp                      quantile P(X <= x) = p
+pexp                      cdf P(X <= x)
+rexp                      random nums
 
-dgamma (x, shape, rate) pdf
-pgamma                  cdf
-rgamma                  random
-qgamma                  quantile
+dgamma (x, shape, rate)   pdf
+pgamma                    cdf
+rgamma                    random
+qgamma                    quantile
 
