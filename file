@@ -1,5 +1,5 @@
-dnorm(x, mean, sd)
-pnorm()
+dnorm (x, mean, sd)
+pnorm ()
 qnorm
 rnorm
 
@@ -8,7 +8,7 @@ qbinom
 pbinom
 rbinom
 
-dpois(x, lambda = 3)
+dpois (x, lambda = 3)
 qpois
 ppois
 rpois
