@@ -1,0 +1,25 @@
+dnorm(x, mean, sd)
+pnorm()
+qnorm
+rnorm
+
+dbinom
+qbinom
+pbinom
+rbinom
+
+dpois(x, lambda = 3)
+qpois
+ppois
+rpois
+
+dexp
+qexp
+pexp
+rexp
+
+dgamma
+pgamma
+rgamma
+qgamma
+
