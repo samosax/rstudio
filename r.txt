@@ -95,3 +95,33 @@ p <- p + geom_polygon(data = feasible_region, mapping = aes(x = x, y = y), fill 
 
 # Print plot
 print(p)
+
+
+//read from file transport and assign
+
+b=read.delim(file.choose(),header = T,sep = ',')
+s1=b$s1
+s2=b$s2
+s3=b$s3
+s=b$supply
+d=b$demand
+
+a=c()
+for(i in 1:3)
+{
+  a=append(a,s1[i])
+  a=append(a,s2[i])
+  a=append(a,s3[i])
+}
+
+a=matrix(a,nrow = 3,ncol = 3,byrow = T)
+
+require(lpSolve)
+library(lpSolve)
+ss=rep('=',3)
+ds=rep('=',3)
+sol=lp.transport(a,direction = 'min',ss,s,ds,d)
+sol$solution
+print(sol)
+
+write.csv(sol$solution,file = "output.csv")
