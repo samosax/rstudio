@@ -53,6 +53,39 @@ a <- data.frame(x=6.3)
 result <- predict(relation,a)
 print(result)
 
+Predict the weight of new persons
+ Live Demo
+# The predictor vector.
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+
+# The resposne vector.
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+
+# Apply the lm() function.
+relation <- lm(y~x)
+
+# Find weight of a person with height 170.
+a <- data.frame(x = 170)
+result <-  predict(relation,a)
+print(result)
+
+ Visualize the Regression Graphically
+ Live Demo
+# Create the predictor and response variable.
+x <- c(151, 174, 138, 186, 128, 136, 179, 163, 152, 131)
+y <- c(63, 81, 56, 91, 47, 57, 76, 72, 62, 48)
+relation <- lm(y~x)
+
+# Give the chart file a name.
+png(file = "linearregression.png")
+
+# Plot the chart.
+plot(y,x,col = "blue",main = "Height & Weight Regression",
+abline(lm(x~y)),cex = 1.3,pch = 16,xlab = "Weight in Kg",ylab = "Height in cm")
+
+# Save the file.
+dev.off()
+
 //Graph feasible solution
 cons.1 <- function(x) 6 - x  
 cons.2 <- function(x) 5 - 0.5*x
@@ -125,3 +158,30 @@ sol$solution
 print(sol)
 
 write.csv(sol$solution,file = "output.csv")
+
+//Anova
+# Installing the package
+install.packages("dplyr")
+
+# Loading the package
+library(dplyr)
+
+# Variance in mean within group and between group
+boxplot(mtcars$disp~factor(mtcars$gear),
+		xlab = "gear", ylab = "disp")
+
+# Step 1: Setup Null Hypothesis and Alternate Hypothesis
+# H0 = mu = mu01 = mu02(There is no difference
+# between average displacement for different gear)
+# H1 = Not all means are equal
+
+# Step 2: Calculate test statistics using aov function
+mtcars_aov <- aov(mtcars$disp~factor(mtcars$gear))
+summary(mtcars_aov)
+
+# Step 3: Calculate F-Critical Value
+# For 0.05 Significant value, critical value = alpha = 0.05
+
+# Step 4: Compare test statistics with F-Critical value
+# and conclude test p < alpha, Reject Null Hypothesis
+
