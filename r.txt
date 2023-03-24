@@ -43,13 +43,23 @@ r=c(100,60)
 simplex(a=o,A1=c,b1=r,maxi = T)
 
 
-//Feasible solution
-recquire(ggplot2)
+//regression
+x <- c(5.1,5.5,5.8,6.1,6.4,65.7,6.4,6.1,5.10,5.7)
+y <- c(63,66,69,72,75,78,75,72,69,66)
+
+relation <- lm(y~x)
+summary(relation)
+a <- data.frame(x=6.3)
+result <- predict(relation,a)
+print(result)
+
+//Graph feasible solution
+cons.1 <- function(x) 6 - x  
+cons.2 <- function(x) 5 - 0.5*x
+# Import ggplot2 package
 library(ggplot2)
 
 # Build plot
-cons.1 <- function(x) 6 - x  
-cons.2 <- function(x) 5 - 0.5*x
 p <- ggplot(data = data.frame(x = 0), aes(x = x)) +
   
   # Add axes
@@ -77,12 +87,11 @@ p <- ggplot(data = data.frame(x = 0), aes(x = x)) +
 # Print plot
 print(p)
 
-//regression
-x <- c(5.1,5.5,5.8,6.1,6.4,65.7,6.4,6.1,5.10,5.7)
-y <- c(63,66,69,72,75,78,75,72,69,66)
+feasible_region = data.frame(x = c(0, 4, 4, 2, 0), y = c(0, 0, 2, 4, 5))
 
-relation <- lm(y~x)
-summary(relation)
-a <- data.frame(x=6.3)
-result <- predict(relation,a)
-print(result)
+# Add feasible region to current plot
+p <- p + geom_polygon(data = feasible_region, mapping = aes(x = x, y = y), fill = "#dddddd") +
+  geom_point(data = feasible_region, aes(x = x, y = y), color = "Black")
+
+# Print plot
+print(p)
